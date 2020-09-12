@@ -20,8 +20,13 @@ const zooAnimals = [
 The zoos want to display both the scientific name and the animal name in front of the habitats. Populate the displayNames array with only the animal_name and scientific_name of each animal. displayNames will be an array of strings, and each string should follow this pattern: "Name: Jackal, asiatic, Scientific: Canis aureus."
 
 */
+
+
 const displayNames = [];
-console.log(displayNames);
+zooAnimals.forEach(zooAnimals => {return displayNames.push(`Name: ${zooAnimals.animal_name} asiatic, Scientific: ${zooAnimals.scientific_name}`)} );
+console.log("arrays-callbacks Request 1:",displayNames);
+
+
 
 /* Request 2: .map()
 
@@ -29,16 +34,20 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 
 */
 
-const lowCaseAnimalNames
-console.log(lowCaseAnimalNames);
+const lowCaseAnimalNames = zooAnimals.map( zooAnimals => zooAnimals.animal_name.toLowerCase());
+console.log("arrays-callbacks Request 2:",lowCaseAnimalNames);
+
+
+
 
 /* Request 3: .filter() 
 
 The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
 
 */
-const lowPopulationAnimals
-console.log(lowPopulationAnimals);
+
+const lowPopulationAnimals = zooAnimals.filter(zooAnimals => zooAnimals.population < 5);
+console.log("arrays-callbacks Request 3:",lowPopulationAnimals);
 
 /* Request 4: .reduce() 
 
@@ -46,7 +55,8 @@ The zoos need to know their total animal population across the United States. Fi
 
 */
 let populationTotal = 0;
-console.log(populationTotal);
+
+console.log("arrays-callbacks Request 4:",populationTotal);
 
 
 // ==== Callbacks ====  
