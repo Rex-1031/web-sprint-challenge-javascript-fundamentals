@@ -21,10 +21,10 @@ The zoos want to display both the scientific name and the animal name in front o
 
 */
 
-
+console.log(`==== ADVANCED  Array Methods ====`)
 const displayNames = [];
 zooAnimals.forEach(zooAnimals => {return displayNames.push(`Name: ${zooAnimals.animal_name} asiatic, Scientific: ${zooAnimals.scientific_name}`)} );
-console.log("arrays-callbacks Request 1:",displayNames);
+console.log("Request 1:",displayNames);
 
 
 
@@ -35,7 +35,7 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 */
 
 const lowCaseAnimalNames = zooAnimals.map( zooAnimals => zooAnimals.animal_name.toLowerCase());
-console.log("arrays-callbacks Request 2:",lowCaseAnimalNames);
+console.log("Request 2:",lowCaseAnimalNames);
 
 
 
@@ -47,16 +47,16 @@ The zoos are concerned about animals with a lower population count. Using filter
 */
 
 const lowPopulationAnimals = zooAnimals.filter(zooAnimals => zooAnimals.population < 5);
-console.log("arrays-callbacks Request 3:",lowPopulationAnimals);
+console.log("Request 3:",lowPopulationAnimals);
 
 /* Request 4: .reduce() 
 
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-let populationTotal = 0;
+let populationTotal = zooAnimals.reduce((acc, cv) =>{return acc += cv.population;}, 0);
 
-console.log("arrays-callbacks Request 4:",populationTotal);
+console.log("Request 4:",populationTotal);
 
 
 // ==== Callbacks ====  
@@ -68,19 +68,34 @@ console.log("arrays-callbacks Request 4:",populationTotal);
   * The consume function should return the invocation of cb, passing a and b into cb as arguments
 */
 
+function consume (a, b, cb){
+  return cb(a,b);
+}
+
+
+
 
 /* Step 2: Create several functions to callback with consume();
   * Create a function named add that returns the sum of two numbers
   * Create a function named multiply that returns the product of two numbers 
   * Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!"
 */
+   const add = (num1, num2) => {return num1 + num2;}
+
+   const  multiply = (num1, num2) =>{return num1 * num2;}
+
+   const  greeting = (firstName, lastName) => {return `Hello ${firstName} ${lastName}, nice to meet you! `;}
+
+
+
+
 
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
-// console.log(consume(2, 2, add)); // 4
-// console.log(consume(10, 16, multiply)); // 160
-// console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
-
+console.log(`====CALLBACKS====`)
+console.log(consume(2, 2, add)); // 4
+console.log(consume(10, 16, multiply)); // 160
+console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 
 
